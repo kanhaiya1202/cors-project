@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>corsProject</title>
-</head>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-
-    
-
-<body>
-    <input type="text" name="" id="a" placeholder="first number">
-    <input type="text" name="" id="a" placeholder="sencond number">
-
-    <button onclick="sendrequest()">FindSum</button>
-
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.8.3/axios.min.js"></script>
 
     <script>
-        async function sendrequest(){
+        async function SendRequest() {
             const a = document.getElementById("a").value;
             const b = document.getElementById("b").value;
-
-            const responce = await axios ("http://localhost:3000/sum", {
+        //what do use python -m SimpleHTTPServer
+        //server all of your file HTTP
+            const responce = await axios.post("http://localhost:3000/sum" ,{
                 a:a,
                 b:b
             })
             console.log(responce.data);
-        }
+    }
     </script>
-</body>
+
+
+
+</head>
+<body>
+    <input type="number" id="a" placeholder="first value">
+    <input type="number" id="b" placeholder="second value">
+
+    <button onclick="SendRequest()">FindSum</button>
+
+</body> 
+
 </html>
